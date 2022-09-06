@@ -4,10 +4,9 @@
 
 <div align='center'>
 
-[![GitHub](https://img.shields.io/github/license/mkyy/mui-search-bar?style=plastic)](https://github.com/mkyy/mui-search-bar "View this project on GitHub")
-[![npm](https://img.shields.io/npm/v/@mkyy/mui-search-bar?style=plastic)](https://www.npmjs.com/package/@mkyy/mui-search-bar "View this project on npm")
-[![coffee](https://img.shields.io/badge/buy%20me%20a-coffee-brown?style=plastic)](https://ko-fi.com/maiky "Buy me a coffee")
-
+[![GitHub](https://img.shields.io/github/license/mkyy/mui-search-bar?style=plastic)](https://github.com/mkyy/mui-search-bar 'View this project on GitHub')
+[![npm](https://img.shields.io/npm/v/@mkyy/mui-search-bar?style=plastic)](https://www.npmjs.com/package/@mkyy/mui-search-bar 'View this project on npm')
+[![coffee](https://img.shields.io/badge/buy%20me%20a-coffee-brown?style=plastic)](https://ko-fi.com/maiky 'Buy me a coffee')
 
 </div>
 
@@ -30,7 +29,7 @@ Note: This component is intended to projects using Material-UI v5+, if you're st
 The `SearchBar` is a _controlled input_, meaning that you need to keep the input state. This allows for much flexibility, e.g. you can change and clear the search input just by changing its props.
 
 ```js
-import SearchBar from 'material-ui-search-bar';
+import SearchBar from '@mkyy/mui-search-bar';
 
 return (
   <SearchBar
