@@ -1,6 +1,6 @@
 {
   "name": "@mkyy/mui-search-bar",
-  "version": "0.3.7",
+  "version": "0.3.8",
   "private": false,
   "type": "module",
   "main": "dist/mui-search-component.umd.cjs",
@@ -27,7 +27,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/TeamWertarbyte/material-ui-search-bar.git"
+    "url": "git+https://github.com/mkyy/mui-search-bar"
   },
   "bugs": {
     "url": "https://github.com/mkyy/mui-search-bar/issues"
