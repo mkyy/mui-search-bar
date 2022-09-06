@@ -34,7 +34,7 @@ import SearchBar from '@mkyy/mui-search-bar';
 return (
   <SearchBar
     value={textFieldValue}
-    onChange={newValue => setTextFieldValue(newValue)}
+    onChange={event => setTextFieldValue(event.target.value)}
     onSearch={() => handleSearch(textFieldValue)}
   />
 );
