@@ -1,6 +1,6 @@
 # mui-search-bar
 
-![Example](demo.gif)
+![](demo.gif)
 
 ## Installation
 
