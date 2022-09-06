@@ -1,0 +1,59 @@
+{
+  "name": "@mkyy/mui-search-bar",
+  "version": "0.3.5",
+  "private": false,
+  "type": "module",
+  "main": "dist/mui-search-component.umd.cjs",
+  "module": "dist/mui-search-component.js",
+  "types": "index.d.ts",
+  "files": [
+    "dist",
+    "*.d.ts"
+  ],
+  "description": "SearchBar component designed with Material-UI v5 ",
+  "author": "Maiky Roger <maikyrg9@gmail.com> (https://mkyy.vercel.app)",
+  "keywords": [
+    "react",
+    "material",
+    "material-design",
+    "material-ui",
+    "search",
+    "react-component",
+    "v5",
+    "@mui/material",
+    "Material-UI v5",
+    "search bar"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "@emotion/react": "^11.10.4",
+    "@emotion/styled": "^11.10.4",
+    "@mui/icons-material": "^5.10.3",
+    "@mui/material": "^5.10.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.17",
+    "@types/react-dom": "^18.0.6",
+    "@vitejs/plugin-react": "^2.1.0",
+    "vite": "^3.1.0"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
