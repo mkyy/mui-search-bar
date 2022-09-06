@@ -2,6 +2,15 @@
 
 ![](demo.gif)
 
+<div align='center'>
+
+[![GitHub](https://img.shields.io/github/license/mkyy/mui-search-bar?style=plastic)](https://github.com/mkyy/mui-search-bar "View this project on GitHub")
+[![npm](https://img.shields.io/npm/v/@mkyy/mui-search-bar?style=plastic)](https://www.npmjs.com/package/@mkyy/mui-search-bar "View this project on npm")
+[![coffee](https://img.shields.io/badge/buy%20me%20a-coffee-brown?style=plastic)](https://ko-fi.com/maiky "Buy me a coffee")
+
+
+</div>
+
 ## Installation
 
 ```shell
