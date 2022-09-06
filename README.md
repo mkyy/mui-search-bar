@@ -1,5 +1,7 @@
 # mui-search-bar
 
+![Example](demo.gif)
+
 ## Installation
 
 ```shell
