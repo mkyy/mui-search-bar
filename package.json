@@ -1,6 +1,6 @@
 {
   "name": "@mkyy/mui-search-bar",
-  "version": "0.3.5",
+  "version": "0.3.6",
   "private": false,
   "type": "module",
   "main": "dist/mui-search-component.umd.cjs",
@@ -25,6 +25,13 @@
     "search bar"
   ],
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TeamWertarbyte/material-ui-search-bar.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mkyy/mui-search-bar/issues"
+  },
   "dependencies": {
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
