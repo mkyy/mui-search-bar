@@ -56,3 +56,5 @@ The files included in this repository are licensed under the MIT license.
 ## Contributions
 
 Feel free to open an issue or add a pull request. Anytime. Really, I mean it.
+
+Also, if you like my work, I'll let you know that I love [coffee](https://ko-fi.com/maiky).
