@@ -5,6 +5,8 @@ import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
 import CloseIcon from '@mui/icons-material/Close';
 import PropTypes from 'prop-types';
+import useAutocomplete from '@mui/material/useAutocomplete';
+import { autocompleteClasses } from '@mui/material/Autocomplete';
 
 const Search = styled('div')(() => ({
   borderRadius: '5px',
@@ -52,6 +54,30 @@ const StyledInputBase = styled(InputBase)(() => ({
   height: '100%',
 }));
 
+const Listbox = styled('ul')(() => ({
+  width: '100%',
+  margin: 0,
+  padding: 0,
+  zIndex: 1,
+  position: 'absolute',
+  listStyle: 'none',
+  backgroundColor: '#f1f1f1',
+  overflow: 'auto',
+  maxHeight: 200,
+  borderRadius: '0 0 10px 10px',
+  border: '1px solid rgba(0,0,0,.25)',
+  '& li': { textAlign: 'left', paddingLeft: '10px' },
+  [`& li.${autocompleteClasses.focused}`]: {
+    backgroundColor: '#4a8df6',
+    color: 'white',
+    cursor: 'pointer',
+  },
+  '& li:active': {
+    backgroundColor: '#2977f5',
+    color: 'white',
+  },
+}));
+
 const SearchBar = ({
   value,
   width,
@@ -63,13 +89,28 @@ const SearchBar = ({
   className,
   style,
   disabled,
+  options,
 }) => {
   const [internalValue, setInternalValue] = useState(value || '');
+
+  const { getRootProps, getInputProps, getListboxProps, getOptionProps, groupedOptions } =
+    useAutocomplete({
+      id: 'use-autocomplete',
+      options: options,
+      getOptionLabel: option => option,
+      filterOptions: options => {
+        if (options === undefined) return [];
+        let newOptions = options.filter(option => {
+          return option.toLowerCase().includes(internalValue.toLowerCase());
+        });
+        return newOptions.slice(0, 5);
+      },
+    });
 
   const handleChange = e => {
     setInternalValue(e.target.value);
     if (onChange) {
-      onChange(e);
+      onChange(e.target.value);
     }
   };
 
@@ -77,6 +118,13 @@ const SearchBar = ({
     setInternalValue('');
     if (onCancelResearch) {
       onCancelResearch(internalValue);
+    }
+  };
+
+  const handleClickOption = e => {
+    setInternalValue(e.target.textContent);
+    if (onChange) {
+      onChange(e.target.textContent);
     }
   };
 
@@ -91,24 +139,33 @@ const SearchBar = ({
   return (
     <>
       <Search
+        {...getRootProps()}
         key={'SearchBarComponent-root'}
         style={{ ...style, width: width || '300px', height: height || '40px' }}
-        className={`SearchBarComponent-root ${className}`}
+        className={`SearchBarComponent-root ${className ? className : ''}`}
       >
         <SearchIconWrapper>
           <SearchIcon />
         </SearchIconWrapper>
         <StyledInputBase
-          onChange={handleChange}
-          value={internalValue}
+          inputProps={{ ...getInputProps(), onChange: handleChange, value: internalValue }}
           placeholder={placeholder || 'Search'}
           onKeyUp={handleKeyUp}
           disabled={disabled}
-          key={'inputBaseComponent-root'}
         />
+
         <CloseIconWrapper onClick={handleCancel}>
           {internalValue ? <CloseIcon /> : null}
         </CloseIconWrapper>
+        {groupedOptions.length > 0 ? (
+          <Listbox {...getListboxProps()}>
+            {groupedOptions.map((option, index) => (
+              <li {...getOptionProps({ option, index })} onClick={handleClickOption}>
+                você quer dizer <strong>{option}</strong>
+              </li>
+            ))}
+          </Listbox>
+        ) : null}
       </Search>
     </>
   );
@@ -135,6 +192,8 @@ SearchBar.propTypes = {
   style: PropTypes.object,
   // disable text field
   disabled: PropTypes.bool,
+  //options of autocomplete suggests
+  options: PropTypes.array,
 };
 
 export default SearchBar;

@@ -25,6 +25,8 @@ declare module '@mkyy/mui-search-bar' {
     style?: object;
     // disable text field
     disabled?: boolean;
+    //options of autocomplete sugestions
+    options?: string[];
   }
 
   const SearchBar: React.ComponentType<SearchBarProps>;

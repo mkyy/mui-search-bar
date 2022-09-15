@@ -34,8 +34,8 @@ import SearchBar from '@mkyy/mui-search-bar';
 return (
   <SearchBar
     value={textFieldValue}
-    onChange={event => setTextFieldValue(event.target.value)}
-    onSearch={() => handleSearch(textFieldValue)}
+    onChange={newValue => setTextFieldValue(newValue)}
+    onSearch={handleSearch}
   />
 );
 ```
@@ -54,8 +54,9 @@ return (
 | placeholder      | `string`           | `'Search'` | Sets placeholder text for the embedded text field. |
 | style            | `object`           | `null`     | Override the inline-styles of the root element.    |
 | value            | `string`           | `''`       | The value of the text field.                       |
+| options          | `Array<string>`    | `[]`       | Options of autocomplete suggests list.             |
 
-\* no required properties
+\* required properties
 
 ## License
 
