@@ -96,7 +96,8 @@ const SearchBar = ({
   const { getRootProps, getInputProps, getListboxProps, getOptionProps, groupedOptions } =
     useAutocomplete({
       id: 'use-autocomplete',
-      options: options,
+      freeSolo: true,
+      options: options || [],
       getOptionLabel: option => option,
       filterOptions: options => {
         if (options === undefined) return [];
@@ -126,6 +127,7 @@ const SearchBar = ({
     if (onChange) {
       onChange(e.target.textContent);
     }
+    if (onSearch) return onSearch(e.target.textContent);
   };
 
   const handleKeyUp = e => {
@@ -142,7 +144,7 @@ const SearchBar = ({
         {...getRootProps()}
         key={'SearchBarComponent-root'}
         style={{ ...style, width: width || '300px', height: height || '40px' }}
-        className={`SearchBarComponent-root ${className ? className : ''}`}
+        className={`SearchBarComponent-root ${className ? className : null}`}
       >
         <SearchIconWrapper>
           <SearchIcon />
@@ -153,15 +155,17 @@ const SearchBar = ({
           onKeyUp={handleKeyUp}
           disabled={disabled}
         />
+        {internalValue ? (
+          <CloseIconWrapper onClick={handleCancel}>
+            <CloseIcon />
+          </CloseIconWrapper>
+        ) : null}
 
-        <CloseIconWrapper onClick={handleCancel}>
-          {internalValue ? <CloseIcon /> : null}
-        </CloseIconWrapper>
-        {groupedOptions.length > 0 ? (
+        {groupedOptions.length > 0 && internalValue.length ? (
           <Listbox {...getListboxProps()}>
             {groupedOptions.map((option, index) => (
               <li {...getOptionProps({ option, index })} onClick={handleClickOption}>
-                você quer dizer <strong>{option}</strong>
+                <strong>{option}</strong>
               </li>
             ))}
           </Listbox>

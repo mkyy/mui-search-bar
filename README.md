@@ -40,6 +40,27 @@ return (
 );
 ```
 
+!Important: If you are using options to auto-complete suggests, you need to get the value of the clicked option inside your handleSearch function.
+
+If you try using your controlled input state to manage this event, you'll get the old value, and not the `labelOptionValue`.
+
+```js
+import SearchBar from '@mkyy/mui-search-bar';
+
+const handleSearch = labelOptionValue => {
+  //...
+  console.log(labelOptionValue);
+};
+
+return (
+  <SearchBar
+    value={textFieldValue}
+    onChange={newValue => setTextFieldValue(newValue)}
+    onSearch={handleSearch}
+  />
+);
+```
+
 ### SearchBar Properties
 
 | Name             | Type               | Default    | Description                                        |
