@@ -16,7 +16,7 @@ declare module '@mkyy/mui-search-bar' {
     // value of input text field
     value?: string;
     // fired when input value changes
-    onChange?(): void;
+    onChange?(query: string): void;
     // fired when the search is canceled
     onCancelResearch?(): void;
     // fired when press enter
