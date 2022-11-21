@@ -14,13 +14,13 @@ declare module '@mkyy/mui-search-bar' {
     // override the placeholder
     placeholder?: string;
     // value of input text field
-    value?: string;
+    value?: string | null;
     // fired when input value changes
     onChange?(query: string): void;
     // fired when the search is canceled
     onCancelResearch?(): void;
     // fired when press enter
-    onSearch?(): void;
+    onSearch?(labelOptionValue?: string | null): void;
     // override styles of the root element
     style?: object;
     // disable text field
